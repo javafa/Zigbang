@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "812405805691",
+    "firebase_url": "https://zigbang-f5052.firebaseio.com",
+    "project_id": "zigbang-f5052",
+    "storage_bucket": "zigbang-f5052.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812405805691:android:4c3c41da3a9ebed2",
+        "android_client_info": {
+          "package_name": "com.kodonho.android.zigbang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812405805691-8jt14o6qi6685203bnlflj95d507qjd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCkoX4DfHu85rJtcZX8TVxv3t97e98GDM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
