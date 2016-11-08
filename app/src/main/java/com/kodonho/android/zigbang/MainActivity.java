@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     HomeFragment home;
     MapFragment map;
     PostFragment etc;
-    Fragment settings;
 
     ViewPager pager;
 
