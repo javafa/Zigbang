@@ -10,6 +10,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //java 8 사용 설정 1
+        jackOptions {
+            enabled true
+        }
+    }
+    //java 8 사용 설정 2
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     signingConfigs{
@@ -44,14 +53,17 @@ dependencies {
     // TabLayout
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support:design:24.2.1'
-
     // map
     compile 'com.google.android.gms:play-services:9.6.1'
-
     // firebase
     compile 'com.google.firebase:firebase-core:9.6.1'
     compile 'com.google.firebase:firebase-database:9.6.1'
+    compile 'com.google.firebase:firebase-storage:9.6.1'
     // geofire
+    compile 'com.firebase:geofire-android:2.1.1'
+    // ReactiveX
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
