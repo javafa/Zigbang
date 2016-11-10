@@ -20,32 +20,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.kodonho.android.zigbang.domain.Room;
 
 import java.io.IOException;
 
-public class PostFragment extends Fragment implements OnMapReadyCallback,View.OnClickListener {
-
+public class PostFragment extends Fragment implements View.OnClickListener {
+    private final static String TAG = "PostFragment";
     private final static int REQ_CODE_CAMERA = 10;
     private final static int REQ_CODE_GALLERY = 20;
+    private final static int REQ_CODE_ADDRESS = 30;
 
     private OnFragmentInteractionListener mListener;
 
     FloatingActionButton btnPost; // 등록 버튼
-    Button btnGallery,btnTake;
+    Button btnGallery,btnTake,btnAddress;
 
     EditText roomTitle;    // 방제목
     EditText price; // 매매가
     EditText deposite;// 보증금
     EditText rent; // 월세
     ImageView roomPhoto1; // 사진 1개 필수
-    GoogleMap mMap;
-    SupportMapFragment mapFragment;// 위치 선택
     EditText roomCount;// 방개수
     EditText roomSize;// 평수
 
@@ -68,9 +62,12 @@ public class PostFragment extends Fragment implements OnMapReadyCallback,View.On
         btnPost = (FloatingActionButton) view.findViewById(R.id.fab);
         btnGallery = (Button) view.findViewById(R.id.btnGallery);
         btnTake = (Button) view.findViewById(R.id.btnTake);
+        btnAddress = (Button) view.findViewById(R.id.btnAddress);
+
         btnPost.setOnClickListener(this);
         btnGallery.setOnClickListener(this);
         btnTake.setOnClickListener(this);
+        btnAddress.setOnClickListener(this);
 
         roomTitle = (EditText) view.findViewById(R.id.etTitle);
         price = (EditText) view.findViewById(R.id.price);
@@ -78,8 +75,6 @@ public class PostFragment extends Fragment implements OnMapReadyCallback,View.On
         rent = (EditText) view.findViewById(R.id.etMonthlyRent);
         // 사진 1개 필수
         roomPhoto1 = (ImageView) view.findViewById(R.id.roomPhoto1);
-        mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this); // 위치 선택
         roomCount = (EditText) view.findViewById(R.id.roomCount);// 방개수
         roomSize = (EditText) view.findViewById(R.id.roomSize);// 평수
 
@@ -105,24 +100,32 @@ public class PostFragment extends Fragment implements OnMapReadyCallback,View.On
                 intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,REQ_CODE_CAMERA);
                 break;
+            case R.id.btnAddress:
+                intent = new Intent(getContext(),PlaceSearchActivity.class);
+                startActivityForResult(intent, REQ_CODE_ADDRESS);
+                break;
         }
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    public void post(){
+        Room room = new Room();
     }
 
     public boolean validate(){
         boolean flag = false;
         // 여기서 모든 필드의 값이 정상적으로 들어갔는지 체크
-        if(roomTitle.getText().toString().length() > 1){
+        Log.d(TAG,"roomPhoto="+roomPhoto1.getDrawable());
+        if(roomPhoto1.getDrawable() == null){ // 이미지 정상여부
 
         }
+        // 방제목
+        if(roomTitle.getText().toString().length() > 1) {
+
+        }
+        // 주소체크
+//        if(){
+//
+//        }
 
         return flag;
     }
@@ -159,8 +162,8 @@ public class PostFragment extends Fragment implements OnMapReadyCallback,View.On
                 Uri uri = data.getData();
                 switch (requestCode) {
                     case REQ_CODE_GALLERY:
-                        roomPhoto1.setImageURI(uri);
-                        break;
+                        //roomPhoto1.setImageURI(uri);
+                        //break;
                     case REQ_CODE_CAMERA:
                         String imgPath = getRealPathFromURI(uri);
                         Log.i("image","imgPath="+imgPath);
@@ -257,4 +260,5 @@ public class PostFragment extends Fragment implements OnMapReadyCallback,View.On
             return contentUri.getPath();
         }
     }
+
 }

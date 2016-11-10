@@ -24,7 +24,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:ems="10"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
@@ -76,7 +75,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="numberDecimal"
                 android:ems="10"
                 android:layout_below="@+id/etDeposite"
                 android:layout_alignParentLeft="true"
@@ -89,7 +88,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="numberDecimal"
                 android:ems="10"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -100,7 +99,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="numberDecimal"
                 android:ems="10"
                 android:layout_alignBottom="@+id/etDeposite"
                 android:layout_toRightOf="@+id/etDeposite"
@@ -141,39 +140,35 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
-
         </RelativeLayout>
+
         <EditText
             android:id="@+id/roomCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:ems="10"
+            android:hint="방개수"
             android:layout_below="@+id/imageLayout"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:hint="방개수" />
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            tools:context="com.kodonho.android.zigbang.MapsActivity"
-            android:layout_below="@+id/roomCount" />
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:id="@+id/roomSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:hint="평"
-            android:layout_below="@+id/roomPhoto1"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_toRightOf="@+id/roomCount"
-            android:layout_toEndOf="@+id/roomCount" />
+            android:layout_below="@+id/roomCount"/>
+
+        <Button
+            android:id="@+id/btnAddress"
+            android:text="주소검색"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/roomSize"
+            />
 
     </RelativeLayout>
 
