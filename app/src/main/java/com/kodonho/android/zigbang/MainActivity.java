@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     ViewPager pager;
 
     FirebaseDatabase firebase;
-    DatabaseReference rootRef;
     DatabaseReference roomsRef;
 
 
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         setContentView(R.layout.activity_main);
 
         firebase = FirebaseDatabase.getInstance();
-        rootRef = firebase.getReference();
         roomsRef = firebase.getReference("rooms");
 
         home = new HomeFragment();

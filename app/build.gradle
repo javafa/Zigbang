@@ -11,15 +11,15 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //java 8 사용 설정 1
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
     }
     //java 8 사용 설정 2
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
 
     signingConfigs{
         release {
@@ -62,8 +62,8 @@ dependencies {
     // geofire
     compile 'com.firebase:geofire-android:2.1.1'
     // ReactiveX
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+//    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
